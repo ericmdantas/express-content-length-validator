@@ -1,0 +1,33 @@
+{
+  "name": "express-content-length-validator",
+  "version": "0.0.1",
+  "description": "Make sure your application won't stop when someone tries to attack it (based on the content-length)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha *_test.js --watch --recursive --check-leaks --reporter min"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericmdantas/express-content-length-validator.git"
+  },
+  "keywords": [
+    "express",
+    "validator",
+    "content-length",
+    "payload",
+    "attack",
+    "express-validator",
+    "middleware",
+    "express-content-length-validator"
+  ],
+  "author": "Eric Mendes Dantas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericmdantas/express-content-length-validator/issues"
+  },
+  "homepage": "https://github.com/ericmdantas/express-content-length-validator",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^1.10.0"
+  }
+}

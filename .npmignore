@@ -1,0 +1,4 @@
+.idea
+node_modules
+.travis.yml
+index_test.js
