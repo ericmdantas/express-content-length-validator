@@ -4,8 +4,7 @@
   "description": "Make sure your application won't stop when someone tries to attack it (based on the content-length)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha *_test.js --watch --recursive --check-leaks --reporter min",
-    "test-on-travis": "mocha *_test.js --recursive --check-leaks --reporter min"
+    "test": "mocha *_test.js --recursive --check-leaks --reporter min"
   },
   "repository": {
     "type": "git",
