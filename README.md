@@ -4,7 +4,7 @@ Make sure your application is not vulnerable to large payloads attacks
 
 # install
 
-```$ npm install express-content-length-validator --save
+```$ npm install express-content-length-validator --save```
 
 # usage
 
