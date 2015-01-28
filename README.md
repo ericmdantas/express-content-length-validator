@@ -4,7 +4,7 @@ Make sure your application is not vulnerable to large payloads attacks
 
 # install
 
-```$ npm install express-content-length-validator --save
+```$ npm install express-content-length-validator --save```
 
 # usage
 
@@ -14,7 +14,7 @@ Make sure your application is not vulnerable to large payloads attacks
     var app = require('express')();
     var MAX_CONTENT_LENGHT_ACCEPTED = 9999;
 
-    contentLengthValidator({max: MAX_CONTENT_LENGHT_ACCEPTED}); // max size accepted for the content-length
+    contentLength({max: MAX_CONTENT_LENGHT_ACCEPTED}); // max size accepted for the content-length
 
     // and then, when you're checking the routes
 
