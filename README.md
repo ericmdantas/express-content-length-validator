@@ -1,5 +1,7 @@
 # express-content-length-validator
 
+[![Build Status](https://travis-ci.org/ericmdantas/express-content-length-validator.svg?branch=master)](https://travis-ci.org/ericmdantas/express-content-length-validator)
+
 Make sure your application is not vulnerable to large payloads attacks
 
 # install
