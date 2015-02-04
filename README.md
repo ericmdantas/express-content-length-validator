@@ -16,7 +16,7 @@ Make sure your application is not vulnerable to large payloads attacks
     var app = require('express')();
     var MAX_CONTENT_LENGTH_ACCEPTED = 9999;
 
-    app.use(contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED}); // max size accepted for the content-length
+    app.use(contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED})); // max size accepted for the content-length
 
     // and then, when you're checking the routes
 
@@ -37,8 +37,8 @@ Make sure your application is not vulnerable to large payloads attacks
     var app = require('express')();
     var MAX_CONTENT_LENGTH_ACCEPTED = 9999;
 
-    app.post('/some/url/here', contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED), function(req, res){/*all is good, the content-length is less than the expected*/});
-    app.put('/some/url/here', contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED), function(req, res){/*all is good, the content-length is less than the expected*/});
+    app.post('/some/url/here', contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED}), function(req, res){/*all is good, the content-length is less than the expected*/});
+    app.put('/some/url/here', contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED}), function(req, res){/*all is good, the content-length is less than the expected*/});
 
     app.listen();
 ```
