@@ -1,7 +1,7 @@
 {
   "name": "express-content-length-validator",
-  "version": "0.0.1",
-  "description": "Make sure your application won't stop when someone tries to attack it (based on the content-length)",
+  "version": "0.0.2",
+  "description": "Make sure your application is not vulnerable to large payloads attacks",
   "main": "index.js",
   "scripts": {
     "test": "mocha *_test.js --recursive --check-leaks --reporter min"

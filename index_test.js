@@ -15,7 +15,7 @@ describe('validator', function()
             var _res = {status: function(){ expect(arguments[0]).to.equal(400); return {end: function(){_endCalled = true;}}}};
             var _next = function(){_called = true;};
 
-            _validator.validateMax(_req, _res, _next);
+            _validator.validateMax()(_req, _res, _next);
 
             expect(_called).to.be.false;
             expect(_endCalled).to.be.true;
@@ -29,7 +29,7 @@ describe('validator', function()
             var _res = {status: function(){ expect(arguments[0]).to.equal(400); return {end: function(){_endCalled = true;}}}};
             var _next = function(){_called = true;};
 
-            _validator.validateMax(_req, _res, _next);
+            _validator.validateMax()(_req, _res, _next);
 
             expect(_called).to.be.true;
             expect(_endCalled).to.be.false;
@@ -38,11 +38,6 @@ describe('validator', function()
 
     describe('validateMax - specific content length', function()
     {
-        beforeEach(function()
-        {
-            _validator({max: 100});
-        })
-
         it('should not call next, content-length bigger than expected', function()
         {
             var _called = false;
@@ -51,7 +46,7 @@ describe('validator', function()
             var _res = {status: function(){ expect(arguments[0]).to.equal(400); return {end: function(){_endCalled = true;}}}};
             var _next = function(){_called = true;};
 
-            _validator.validateMax(_req, _res, _next);
+            _validator.validateMax({max: 100})(_req, _res, _next);
 
             expect(_called).to.be.false;
             expect(_endCalled).to.be.true;
@@ -65,7 +60,7 @@ describe('validator', function()
             var _res = {status: function(){ expect(arguments[0]).to.equal(400); return {end: function(){_endCalled = true;}}}};
             var _next = function(){_called = true;};
 
-            _validator.validateMax(_req, _res, _next);
+            _validator.validateMax({max: 100})(_req, _res, _next);
 
             expect(_called).to.be.true;
             expect(_endCalled).to.be.false;

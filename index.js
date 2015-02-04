@@ -7,27 +7,29 @@ var _getContentLength = function(headers)
     return headers['content-length'] ? parseInt(headers['content-length']) : null;
 }
 
-var CheckContentLength = function(opts)
+var _validateMax = function(opts)
 {
     var _opts = opts || {};
 
     _maxLength = _opts.max || _maxLength;
-}
 
-CheckContentLength.validateMax = function(request, response, next)
-{
-    var _contentLength = _getContentLength(request.headers);
-
-    if (_contentLength > _maxLength)
+    var _middleware = function(request, response, next)
     {
-        response
-            .status(400)
-            .end();
+        var _contentLength = _getContentLength(request.headers);
 
-        return;
+        if (_contentLength > _maxLength)
+        {
+            response
+                .status(400)
+                .end();
+
+            return;
+        }
+
+        next();
     }
 
-    next();
+    return _middleware;
 }
 
-module.exports = CheckContentLength;
+exports.validateMax = _validateMax;
