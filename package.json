@@ -5,7 +5,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "mocha ./tests/*_test.js --recursive --check-leaks --reporter min",
-    "coverage": "istanbul cover \"node_modules/mocha/bin/_mocha\" -- tests/*_test.js"
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- tests/*_test.js",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha -- report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
