@@ -2,9 +2,10 @@
   "name": "express-content-length-validator",
   "version": "0.0.2",
   "description": "Make sure your application is not vulnerable to large payloads attacks",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "test": "mocha *_test.js --recursive --check-leaks --reporter min"
+    "test": "mocha ./tests/*_test.js --recursive --check-leaks --reporter min",
+    "coverage": "istanbul cover \"node_modules/mocha/bin/_mocha\" -- tests/*_test.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,9 @@
   "homepage": "https://github.com/ericmdantas/express-content-length-validator",
   "dependencies": {},
   "devDependencies": {
-    "chai": "^1.10.0"
+    "chai": "^1.10.0",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.5",
+    "mocha": "^2.1.0"
   }
 }

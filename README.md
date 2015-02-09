@@ -1,6 +1,7 @@
 # express-content-length-validator
 
 [![Build Status](https://travis-ci.org/ericmdantas/express-content-length-validator.svg?branch=master)](https://travis-ci.org/ericmdantas/express-content-length-validator)
+[![Coverage Status](https://coveralls.io/repos/ericmdantas/express-content-length-validator/badge.svg)](https://coveralls.io/r/ericmdantas/express-content-length-validator)
 
 Make sure your application is not vulnerable to large payloads attacks
 
