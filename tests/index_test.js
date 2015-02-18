@@ -94,4 +94,21 @@ describe('validator', function()
             expect(_endCalled).to.be.false;
         })
     })
+
+    describe('status', function()
+    {
+        it('should call the status with the correct status', function()
+        {
+            var _called = false;
+            var _endCalled = false;
+            var _req = {headers: {'content-length': '101'}};
+            var _res = {status: function(){ expect(arguments[0]).to.equal(500); return {end: function(){_endCalled = true;}}}};
+            var _next = function(){_called = true;};
+
+            _validator.validateMax({max: 100, status: 500})(_req, _res, _next);
+
+            expect(_called).to.be.false;
+            expect(_endCalled).to.be.true;
+        })
+    })
 })
