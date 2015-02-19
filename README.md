@@ -31,7 +31,7 @@ You'll have a single function to work with: ```validateMax```.
 
 - ```max```, which defaults to 999;
 - ```status```, which defaults to 400;
-
+- ```message```, which defaults to "Invalid payload; too big.".
 
 
 # usage as a middleware
@@ -42,12 +42,16 @@ You'll have a single function to work with: ```validateMax```.
     var app = require('express')();
     var MAX_CONTENT_LENGTH_ACCEPTED = 9999;
 
-    app.use(contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED, status: 400})); // max size accepted for the content-length
+    app.use(contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED, status: 400, message: "stop it!"})); // max size accepted for the content-length
 
     // and then, when you're checking the routes
 
-    app.post('/some/url/here', function(req, res){/*all is good, the content-length is less than the expected*/});
-    app.put('/some/url/here', function(req, res){/*all is good, the content-length is less than the expected*/});
+    app
+        .post('/some/url/here', function(req, res)
+        {
+            /*all is good, the content-length is less than the expected
+              so you can keep with your business logic*/
+        });
 
     app.listen(8080);
 
@@ -63,8 +67,11 @@ You'll have a single function to work with: ```validateMax```.
     var app = require('express')();
     var MAX_CONTENT_LENGTH_ACCEPTED = 9999;
 
-    app.post('/some/url/here', contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED, status: 400}), function(req, res){/*all is good, the content-length is less than the expected*/});
-    app.put('/some/url/here', contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED, status: 400}), function(req, res){/*all is good, the content-length is less than the expected*/});
+    app.post('/some/url/here', contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED, status: 400, message: "send a smaller json, will ya?"}), function(req, res)
+    {
+        /*all is good, the content-length is less than the expected
+        so you can keep with your business logic*/
+    });
 
     app.listen(8080);
 ```
@@ -73,6 +80,6 @@ You'll have a single function to work with: ```validateMax```.
 # It's that easy =]
 
 
-# LICENSE
+# license
 
 MIT
