@@ -27,7 +27,7 @@ You'll have a single function to work with: ```validateMax```.
 
 ## contentLength.validateMax(options)
 
-```options``` is an object with two properties:
+```options``` is an object with three properties:
 
 - ```max```, which defaults to 999;
 - ```status```, which defaults to 400;
