@@ -1,6 +1,6 @@
 {
   "name": "express-content-length-validator",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Make sure your application is not vulnerable to large payload attacks",
   "main": "./lib/index.js",
   "scripts": {
