@@ -5,12 +5,9 @@ var expect = require('chai').expect;
 
 var ERROR_MESSAGE_DEFAULT = "Invalid payload; too big.";
 
-describe('validator', function()
-{
-    describe('validateMax - default length 999', function()
-    {
-        it('should call next - no content-length', function()
-        {
+describe('validator', function(){
+    describe('validateMax - default length 999', function () {
+        it('should call next - no content-length', function () {
             var _called = false;
             var _endCalled = false;
             var _req = {headers: {}};
@@ -21,10 +18,9 @@ describe('validator', function()
 
             expect(_called).to.be.true;
             expect(_endCalled).to.be.false;
-        })
+        });
 
-        it('should not call next - length is bigger than what was expected', function()
-        {
+        it('should not call next - length is bigger than what was expected', function () {
             var _called = false;
             var _endCalled = false;
             var _req = {headers: {'content-length': '1000'}};
@@ -35,10 +31,9 @@ describe('validator', function()
 
             expect(_called).to.be.false;
             expect(_endCalled).to.be.true;
-        })
+        });
 
-        it('should call next correctly', function()
-        {
+        it('should call next correctly', function () {
             var _called = false;
             var _endCalled = false;
             var _req = {headers: {'content-length': '999'}};
@@ -49,13 +44,11 @@ describe('validator', function()
 
             expect(_called).to.be.true;
             expect(_endCalled).to.be.false;
-        })
-    })
+        });
+    });
 
-    describe('validateMax - specific content length', function()
-    {
-        it('should call next - no content-length', function()
-        {
+    describe('validateMax - specific content length', function(){
+        it('should call next - no content-length', function(){
             var _called = false;
             var _endCalled = false;
             var _req = {headers: {}};
@@ -66,10 +59,9 @@ describe('validator', function()
 
             expect(_called).to.be.true;
             expect(_endCalled).to.be.false;
-        })
+        });
 
-        it('should not call next, content-length bigger than expected', function()
-        {
+        it('should not call next, content-length bigger than expected', function(){
             var _called = false;
             var _endCalled = false;
             var _req = {headers: {'content-length': '101'}};
@@ -80,10 +72,9 @@ describe('validator', function()
 
             expect(_called).to.be.false;
             expect(_endCalled).to.be.true;
-        })
+        });
 
-        it('should call next correctly', function()
-        {
+        it('should call next correctly', function(){
             var _called = false;
             var _endCalled = false;
             var _req = {headers: {'content-length': '99'}};
@@ -94,13 +85,11 @@ describe('validator', function()
 
             expect(_called).to.be.true;
             expect(_endCalled).to.be.false;
-        })
+        });
     })
 
-    describe('status', function()
-    {
-        it('should call the status with the correct status', function()
-        {
+    describe('status', function(){
+        it('should call the status with the correct status', function(){
             var _called = false;
             var _endCalled = false;
             var _req = {headers: {'content-length': '101'}};
@@ -111,13 +100,11 @@ describe('validator', function()
 
             expect(_called).to.be.false;
             expect(_endCalled).to.be.true;
-        })
+        });
     })
 
-    describe('message', function()
-    {
-        it('should call the json with the correct message', function()
-        {
+    describe('message', function(){
+        it('should call the json with the correct message', function(){
             var _called = false;
             var _endCalled = false;
             var _req = {headers: {'content-length': '101'}};
@@ -128,6 +115,6 @@ describe('validator', function()
 
             expect(_called).to.be.false;
             expect(_endCalled).to.be.true;
-        })
+        });
     })
 })
